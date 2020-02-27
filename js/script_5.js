@@ -16,18 +16,7 @@ const books = [
 
 
 console.log("\n# Est-ce que tous les livres ont été au moins empruntés une fois ?");
-let rent = true;
-books.forEach((book) => {
-  if (book.rented == 0){
-    rent = false;
-  }
-});
-
-if (rent) {
-  console.log("Tous les livres ont été empruntés au moins une fois");
-} else {
-  console.log("Au moins un livre n'a jamais été emprunté");
-}
+console.log(books.every( book => book.rented > 1 ) ? "Tous les livres ont été empruntés au moins une fois" : "Au moins un livre n'a jamais été emprunté");
 
 console.log("\n# Quel est livre le plus emprunté ?")
 books.sort((a, b) => a.rented - b.rented).reverse();
@@ -45,4 +34,4 @@ console.log(`${books.find(book => book.id == 133712).title} va être supprimé`)
 books.splice(books.findIndex(book => book.id == 133712), 1);
 
 console.log("\n# Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé)");
-console.log(books.sort((a, b) => a.title.localeCompare(b.title)));
+console.log(books.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLocaleLowerCase())));

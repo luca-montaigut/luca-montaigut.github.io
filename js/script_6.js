@@ -1,17 +1,17 @@
 function arnInAcidsConvert(arn){
   let acids = [];
   arn.match(/.{1,3}/g).forEach((codon) => {
-    if (codon == "UCU" || codon == "UCC" || codon == "UCA" || codon == "UCG" || codon == "AGU" || codon == "AGC") {
+    if (codon === "UCU" || codon === "UCC" || codon === "UCA" || codon === "UCG" || codon === "AGU" || codon === "AGC") {
       acids.push("Sérine");
-    } else if (codon == "CCU" || codon == "CCC" || codon == "CCA" || codon == "CCG") {
+    } else if (codon === "CCU" || codon === "CCC" || codon === "CCA" || codon === "CCG") {
       acids.push("Proline");
-    } else if (codon == "UUA" || codon == "UUG") {
+    } else if (codon === "UUA" || codon === "UUG") {
       acids.push("Leucine");
-    } else if (codon == "UUU" || codon == "UUC") {
+    } else if (codon === "UUU" || codon === "UUC") {
       acids.push("Phénylalanine");
-    } else if (codon == "CGU" || codon == "CGC" || codon == "CGA" || codon == "CGG" || codon == "AGA" || codon == "AGG") {
+    } else if (codon === "CGU" || codon === "CGC" || codon === "CGA" || codon === "CGG" || codon === "AGA" || codon === "AGG") {
       acids.push("Arginine");
-    } else if (codon == "UAU" || codon == "UAC") {
+    } else if (codon === "UAU" || codon === "UAC") {
       acids.push("Tyrosine");
     } else {
       acids.push(codon);
