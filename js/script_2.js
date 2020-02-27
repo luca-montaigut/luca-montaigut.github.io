@@ -14,5 +14,5 @@ function factorielle(input){
 
 
 console.log("De quel nombre veux-tu calculer la factorielle ?");
-nombre = prompt("De quel nombre veux-tu calculer la factorielle ?");
+let nombre = prompt("De quel nombre veux-tu calculer la factorielle ?");
 console.log(`La factorielle de ${nombre} est : ${factorielle(nombre)} !`);

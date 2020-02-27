@@ -30,14 +30,14 @@ entrepreneurs.forEach((boss) => {
 console.log("\n# Voici une array qui contient le prénom et le nom des entrepreneurs :");
 let name = []
 entrepreneurs.forEach((boss) => {
-  firstAndLast = (boss.first + " " + boss.last);
+  let firstAndLast = (boss.first + " " + boss.last);
   name.push(firstAndLast);
 });
 console.log(name);
 
 console.log("\n# Quel âge aurait chaque inventeur aujourd'hui ?");
 entrepreneurs.forEach((boss) => {
-  ageToday = 2020 - boss.year;
+  let ageToday = 2020 - boss.year;
   console.log(`${boss.first + " " + boss.last} aurait ${ageToday} ans aujourd'hui !`);
 });
 

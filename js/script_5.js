@@ -16,7 +16,7 @@ const books = [
 
 
 console.log("\n# Est-ce que tous les livres ont été au moins empruntés une fois ?");
-rent = true;
+let rent = true;
 books.forEach((book) => {
   if (book.rented == 0){
     rent = false;
