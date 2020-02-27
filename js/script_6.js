@@ -1,7 +1,6 @@
 function arnInAcidsConvert(arn){
-  arn = arn.match(/.{1,3}/g);
   let acids = [];
-  arn.forEach((codon) => {
+  arn.match(/.{1,3}/g).forEach((codon) => {
     if (codon == "UCU" || codon == "UCC" || codon == "UCA" || codon == "UCG" || codon == "AGU" || codon == "AGC") {
       acids.push("Sérine");
     } else if (codon == "CCU" || codon == "CCC" || codon == "CCA" || codon == "CCG") {
@@ -18,7 +17,7 @@ function arnInAcidsConvert(arn){
       acids.push(codon);
     }
   });
-  return acids;
+  return acids.join('-');
 }
 
 let arn1 = "CCGUCGUUGCGCUACAGC";
