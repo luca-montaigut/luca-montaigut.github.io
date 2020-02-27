@@ -15,8 +15,8 @@ const books = [
 
 
 
-console.log("\n# Est-ce que tous les livres ont été au moins empruntés une fois ?")
-rent = true
+console.log("\n# Est-ce que tous les livres ont été au moins empruntés une fois ?");
+rent = true;
 books.forEach((book) => {
   if (book.rented == 0){
     rent = false;
@@ -41,7 +41,7 @@ console.log("\n# Trouve le livre avec l'ID: 873495");
 console.log(books.find(book => book.id == 873495).title);
 
 console.log("\n# Supprime le livre avec l'ID: 133712");
-console.log(`${books.find(book => book.id == 133712).title} va être supprimé`)
+console.log(`${books.find(book => book.id == 133712).title} va être supprimé`);
 books.splice(books.findIndex(book => book.id == 133712), 1);
 
 console.log("\n# Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé)");

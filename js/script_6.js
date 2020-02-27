@@ -1,6 +1,6 @@
 function arnInAcidsConvert(arn){
-  arn = arn.match(/.{1,3}/g)
-  let acids = []
+  arn = arn.match(/.{1,3}/g);
+  let acids = [];
   arn.forEach((codon) => {
     if (codon == "UCU" || codon == "UCC" || codon == "UCA" || codon == "UCG" || codon == "AGU" || codon == "AGC") {
       acids.push("Sérine");
@@ -15,18 +15,18 @@ function arnInAcidsConvert(arn){
     } else if (codon == "UAU" || codon == "UAC") {
       acids.push("Tyrosine");
     } else {
-      acids.push(codon)
+      acids.push(codon);
     }
   });
-  return acids
+  return acids;
 }
 
-let arn1 = "CCGUCGUUGCGCUACAGC"
-let arn2 = "CCUCGCCGGUACUUCUCG"
+let arn1 = "CCGUCGUUGCGCUACAGC";
+let arn2 = "CCUCGCCGGUACUUCUCG";
 
-console.log(`Les acides aminés qui composent l'ARN \"${arn1}\" sont :`)
-console.log(arnInAcidsConvert(arn1))
+console.log(`Les acides aminés qui composent l'ARN \"${arn1}\" sont :`);
+console.log(arnInAcidsConvert(arn1));
 
-console.log(`\nLes acides aminés qui composent l'ARN \"${arn2}\" sont :`)
-console.log(arnInAcidsConvert(arn2))
+console.log(`\nLes acides aminés qui composent l'ARN \"${arn2}\" sont :`);
+console.log(arnInAcidsConvert(arn2));
 

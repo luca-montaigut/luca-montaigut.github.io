@@ -2,7 +2,7 @@ function factorielle(input){
   let nb = input;
   let result = nb;
   if (result == 0) {
-    return 1
+    return 1;
   } else {
     while (nb > 1) {
       nb--

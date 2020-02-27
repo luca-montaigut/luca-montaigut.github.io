@@ -20,14 +20,14 @@ const entrepreneurs = [
 ];
 
 
-console.log("\n# Voici les entrepreneurs qui sont nés dans les années 70 :")
+console.log("\n# Voici les entrepreneurs qui sont nés dans les années 70 :");
 entrepreneurs.forEach((boss) => {
     if (boss.year > 1969 && boss.year < 1980){
     console.log(boss.first + " " + boss.last);
   }
 });
 
-console.log("\n# Voici une array qui contient le prénom et le nom des entrepreneurs :")
+console.log("\n# Voici une array qui contient le prénom et le nom des entrepreneurs :");
 let name = []
 entrepreneurs.forEach((boss) => {
   firstAndLast = (boss.first + " " + boss.last);
@@ -35,12 +35,12 @@ entrepreneurs.forEach((boss) => {
 });
 console.log(name);
 
-console.log("\n# Quel âge aurait chaque inventeur aujourd'hui ?")
+console.log("\n# Quel âge aurait chaque inventeur aujourd'hui ?");
 entrepreneurs.forEach((boss) => {
-  ageToday = 2020 - boss.year
-  console.log(`${boss.first + " " + boss.last} aurait ${ageToday} ans aujourd'hui !`)
+  ageToday = 2020 - boss.year;
+  console.log(`${boss.first + " " + boss.last} aurait ${ageToday} ans aujourd'hui !`);
 });
 
-console.log("\n# Voici les entrepreneurs par ordre alphabétique du nom de famille :")
-console.log("Voici les entrepreneurs triés par leur nom de famille :")
+console.log("\n# Voici les entrepreneurs par ordre alphabétique du nom de famille :");
+console.log("Voici les entrepreneurs triés par leur nom de famille :");
 console.log(entrepreneurs.sort((a, b) => a.last.localeCompare(b.last)));
