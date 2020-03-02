@@ -16,10 +16,11 @@ button.addEventListener("click", function () {
 
 
 // Fonctionnalité 3
-let edit = document.querySelector('.btn-outline-secondary');
+let edit = document.querySelectorAll('.btn-outline-secondary')[0];
+let card = document.querySelectorAll('.card-text')[0];
 
 edit.addEventListener("click", function () {
-  document.querySelector('.card-text').style.color = "red";
+  card.style.color = "red";
 });
 
 // Fonctionnalité 4
@@ -68,8 +69,9 @@ let parent = document.querySelector('.album .row');
 let btn = document.querySelector('section .btn-secondary');
 
 btn.addEventListener("click", function() {
-  parent.insertBefore(parent.lastChild, parent.childNodes[0]);
+  parent.insertBefore(parent.lastElementChild, parent.firstElementChild);
 })
+
 
 // Fonctionnalité 8
 let btn2 = document.querySelector('section .btn-primary');
@@ -77,7 +79,7 @@ let btn2 = document.querySelector('section .btn-primary');
 btn2.removeAttribute("href")
 
 btn2.addEventListener("click", function() {
-  parent.insertBefore(parent.firstChild, parent.childNodes.nextSibling);
+  parent.insertBefore(parent.firstElementChild, parent.lastElementChild.nextSibling);
 })
 
 
