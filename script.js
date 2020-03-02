@@ -68,7 +68,8 @@ for (let i = 0; i < view.length; i++) {
 let parent = document.querySelector('.album .row');
 let btn = document.querySelector('section .btn-secondary');
 
-btn.addEventListener("click", function() {
+btn.addEventListener("click", function(e) {
+  e.preventDefault();
   parent.insertBefore(parent.lastElementChild, parent.firstElementChild);
 })
 
@@ -78,7 +79,8 @@ let btn2 = document.querySelector('section .btn-primary');
 
 btn2.removeAttribute("href")
 
-btn2.addEventListener("click", function() {
+btn2.addEventListener("click", function(e) {
+  e.preventDefault();
   parent.insertBefore(parent.firstElementChild, parent.lastElementChild.nextSibling);
 })
 
