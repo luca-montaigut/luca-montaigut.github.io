@@ -86,34 +86,45 @@ btn2.addEventListener("click", function(e) {
 
 
 // Fonctionnalité 9
-function action() {
-  if (window.getSelection().anchorNode !== null) {
-    if (window.getSelection().anchorNode.data === "JS & Events"){
-      console.log("Bienvenu sur le cheatcode : \nPressez a / y / p ou b and enjoy !")
-      addEventListener('keypress', function(e) {
-        console.log(`${e.code}`);
-        switch (e.code) {
-          case 'KeyQ':
-            document.body.className = "";
-            document.body.classList.add('col-4');
-            break;
-          case 'KeyY':
-            document.body.className = "";
-            document.body.classList.add('col-4', 'offset-4');
-            break;
-          case 'KeyP':
-            document.body.className = "";
-            document.body.classList.add('col-4', 'offset-8');
-            break;
-          case 'KeyB':
-            document.body.className = "";
-            break;
-          default:
-            break;
-        }
-      })
+window.addEventListener("keypress", function(e) {
+  if(window.getSelection().anchorNode !== null){  
+    if ("KeyQ" && window.getSelection().anchorNode.data === "JS & Events") {
+      switch(e.code){
+        case 'KeyQ':
+          document.body.className = "";
+          document.body.classList.add("col-md-4");
+          break;
+        case 'KeyY':
+          document.body.className = "";
+          document.body.classList.add("offset-4", "col-md-4");
+          break;
+        case 'KeyP':
+          document.body.className = "";
+          document.body.classList.add("offset-8", "col-md-4");
+          break;
+        case 'KeyB':
+          document.body.className = "";
+          break;
+      }
     }
   }
-}
+});
 
-addEventListener('mouseup', action)
+// Fonctionnalité BONUS - Easter
+const luluCode = ['KeyL','KeyU','KeyC','KeyQ'];
+let n = 0;
+
+window.addEventListener("keypress", function(e) {
+  e.code === luluCode[n] ? n++ : n = 0;
+  if( n === luluCode.length){
+    console.log("\n\n |--------------------------------------------------------|");
+    console.log('  |  \"...zZzzz..zZzz...zZz...Hum ?! Plait-il ? L-U-C-A ?   |');
+    console.log("  |  Et ouais ma gueule encore mieux que le Konami Code !\" |");
+    console.log('  |--------------------------------------------------------|');
+    console.log('                                           |');
+    console.log('                                           |______   _/)/)');
+    console.log('                                                    (-.- )');
+    console.log("                                                  (\")(\")_o\n");
+    alert("\n\n|---------------------------------------------------------------------------------|\n|  \"...zZzzz..zZzz...zZz...Hum ?! Plait-il ? L-U-C-A ?                |\n|  Et ouais ma gueule encore mieux que le Konami Code !\" |\n|---------------------------------------------------------------------------------|\n                                         |\n                                         |______   _/)/)\n                                                      (-.- )\n                                                  (\")(\")_o\n\n");
+  }
+});
