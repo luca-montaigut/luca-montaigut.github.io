@@ -67,6 +67,7 @@ const checkLoto = (fname, lname, email, ticket) => {
     document.getElementById(
       "lazytalk2"
     ).innerHTML = `Je te mets un petit MJ pour le kiff ;)`;
+    document.getElementById("music").currentTime = 16;
     document.getElementById("music").play();
     document.getElementById("music").style.display = "flex";
     document.body.style.backgroundImage = "url('money.webp')";
@@ -98,16 +99,19 @@ document.getElementById("submit").addEventListener("click", loto);
 
 ///////// Easter Egg ///////////
 const lazytalk = () => {
-  if (document.getElementById("lazytalk").innerHTML == "ZzzZzz... zZz...") {
+  if (
+    document.getElementById("lazytalk2").innerHTML ==
+    "Maintenant laisse moi pioncer..."
+  ) {
+    document.getElementById("lazytalk").innerHTML = "ZzzZzz... zZz...";
+    document.getElementById("lazytalk2").innerHTML = `...Zzz...`;
+  } else {
     document.getElementById(
       "lazytalk"
     ).innerHTML = `Frère, les numéros gagnants c'est :\n${winNumber1}, ${winNumber2}, ${winNumber3}, ${winNumber4}, ${winNumber5}, ${winNumber6}`;
     document.getElementById(
       "lazytalk2"
     ).innerHTML = `Maintenant laisse moi pioncer...`;
-  } else {
-    document.getElementById("lazytalk").innerHTML = "ZzzZzz... zZz...";
-    document.getElementById("lazytalk2").innerHTML = `...Zzz...`;
   }
 };
 
