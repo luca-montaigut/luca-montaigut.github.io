@@ -20,7 +20,7 @@ class Paladin extends Character {
 
   capacity = () => {
     if (this.mana < 40) {
-      return "You can't use Lighting with so few mana";
+      return console.log("You can't use Lighting with so few mana");
     }
 
     let damage = 4;

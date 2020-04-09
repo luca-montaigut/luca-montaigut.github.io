@@ -21,7 +21,7 @@ class Healer extends Character {
   capacity = () => {
     let heal = 8;
     if (this.mana < 25) {
-      return "You can't use Heal with so few mana";
+      return console.log("You can't use Heal with so few mana");
     }
 
     if (this.hp + Number(heal) >= this.maxHP) {

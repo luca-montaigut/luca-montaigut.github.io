@@ -35,8 +35,9 @@ class Assassin extends Character {
 
   capacity = () => {
     if (this.mana < 20) {
-      return "You can't use Dagger with so few mana";
+      return console.log("You can't use Dagger with so few mana");
     }
+    console.log("On witch player do you want to lunch your Dagger ?");
     this.victim = game.selectEnemy();
     console.log(
       `${this.name} use Dagger and make a plan to kill someone on next turn`
@@ -49,6 +50,11 @@ class Assassin extends Character {
     console.log(
       `${this.name} finaly appli his killing plan on ${this.victim.name}`
     );
+
+    if (this.victim.status == "loser") {
+      return console.log("... but someone was faster than him !");
+    }
+
     this.dealDammage(this.victim);
     if (game.players.includes(this.victim)) {
       console.log(

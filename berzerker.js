@@ -19,8 +19,8 @@ class Berzerker extends Character {
   };
 
   capacity = () => {
-    if ((this.hp = 1)) {
-      return "You can't use Rage with so few hp";
+    if (this.hp == 1) {
+      return console.log("You can't use Rage with so few hp");
     }
 
     console.log(

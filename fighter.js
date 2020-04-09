@@ -36,7 +36,7 @@ class Fighter extends Character {
 
   capacity = () => {
     if (this.mana < 20) {
-      return "You can't use Darkvision with so few mana";
+      return console.log("You can't use Darkvision with so few mana");
     }
 
     let damage = 5;

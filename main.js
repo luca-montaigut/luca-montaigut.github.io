@@ -6,40 +6,47 @@ const shuffleArray = (array) => {
   return array;
 };
 
-game = new Game();
-game.initializePlayers();
+const gameOn = () => {
+  game = new Game();
+  game.initializePlayers();
 
-console.log(game.players);
+  console.log("Bienvenue au Grand Tournoi de THP Next !");
+  console.log(game.players);
 
-let playersTurn;
-let i = 1;
+  let playersTurn;
+  let i = 1;
 
-while (game.turnLeft > 0) {
-  console.log(`Turn n°${i}`);
-  playersTurn = shuffleArray(game.players);
-  console.log(`##############################################`);
-  playersTurn.forEach((player) => {
-    if (player.status == "playing") {
-      player.initStats();
-      console.log(`${player.name} is ready to fight`);
-    }
-  });
-  playersTurn.forEach((player) => {
-    if (player.status == "playing") {
-      console.log(`##############################################`);
-      if (player instanceof Assassin && player.victim != "") {
-        player.daggerAttack();
-      } else {
-        console.log(`${player.name}'s turn to play`);
-        player.stats();
-        game.menu(player);
+  while (game.turnLeft > 0) {
+    console.log(`Turn n°${i}`);
+    playersTurn = shuffleArray(game.players);
+    console.log(`##############################################`);
+    playersTurn.forEach((player) => {
+      if (player.status == "playing") {
+        player.initStats();
+        console.log(`${player.name} is ready to fight`);
       }
-    }
-  });
-  console.log(`##############################################`);
-  playersTurn.forEach((player) => {
-    player.endStats();
-  });
-  game.turnLeft -= 1;
-  i += 1;
-}
+    });
+    playersTurn.forEach((player) => {
+      if (player.status == "playing") {
+        console.log(`##############################################`);
+        if (player instanceof Assassin && player.victim != "") {
+          player.daggerAttack();
+        } else {
+          console.log(`${player.name}'s turn to play`);
+          player.stats();
+          game.menu(player);
+        }
+      }
+      prompt(`End of ${player.name}'s turn, press Enter to continue`);
+      console.clear();
+    });
+    console.log(`##############################################`);
+    playersTurn.forEach((player) => {
+      player.endStats();
+    });
+    game.turnLeft -= 1;
+    i += 1;
+  }
+};
+
+document.getElementById("submit").addEventListener("click", gameOn);
