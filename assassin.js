@@ -38,7 +38,7 @@ class Assassin extends Character {
       return console.log("You can't use Dagger with so few mana");
     }
     console.log("On witch player do you want to lunch your Dagger ?");
-    this.victim = game.selectEnemy();
+    this.victim = game.selectEnemy(this);
     console.log(
       `${this.name} use Dagger and make a plan to kill someone on next turn`
     );
@@ -55,12 +55,18 @@ class Assassin extends Character {
       return console.log("... but someone was faster than him !");
     }
 
-    this.dealDammage(this.victim);
+    this.victim.takeDammage(this, damage);
     if (game.players.includes(this.victim)) {
       console.log(
-        `${this.name}'s plan fail and he get hurt and lose ${damage} health points`
+        `${this.name}'s plan fail ${this.victim.name} is still alive, he get hurt and lose ${damage} health points`
       );
-      this.takeDammage(this, damage);
+      this.hp -= damage;
+      if (this.hp <= 0) {
+        console.log(`${this.name} kill himself with is own attack...`);
+        this.select = "";
+        this.status = "loser";
+        game.playersStillAlive();
+      }
     }
     this.victim = "";
   };

@@ -16,7 +16,7 @@ const gameOn = () => {
   let playersTurn;
   let i = 1;
 
-  while (game.turnLeft > 0) {
+  while (game.turnLeft > 0 && game.players.length > 1) {
     console.log(`Turn n°${i}`);
     playersTurn = shuffleArray(game.players);
     console.log(`##############################################`);
@@ -44,11 +44,15 @@ const gameOn = () => {
     });
     console.log(`##############################################`);
     playersTurn.forEach((player) => {
-      player.endStats();
+      if (player.status == "playing") {
+        player.endStats();
+      }
     });
     game.turnLeft -= 1;
     i += 1;
   }
+
+  game.endGame();
 };
 
 document.getElementById("submit").addEventListener("click", gameOn);

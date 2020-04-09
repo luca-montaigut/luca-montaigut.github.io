@@ -5,13 +5,6 @@ class Game {
     this.status = status;
   }
 
-  skipTurn = () => {
-    this.turnLeft -= 1;
-    if ((this.turnLeft = 0)) {
-      this.endGame();
-    }
-  };
-
   endGame = () => {
     this.playersStillAlive();
     this.players.forEach((player) => {
@@ -20,7 +13,7 @@ class Game {
     console.log("############### Winner(s) ###############################");
     this.players.forEach((player) => {
       if (player.status == "winner") {
-        console.log(`Congratulation ${player}, you're still alive ... `);
+        console.log(`Congratulation ${player.name}, you're still alive ... `);
       }
     });
     console.log("#########################################################");

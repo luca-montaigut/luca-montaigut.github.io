@@ -41,7 +41,7 @@ class Fighter extends Character {
 
     let damage = 5;
     console.log("On witch player do you want to lunch your Darkvision ?");
-    let victim = game.selectEnemy();
+    let victim = game.selectEnemy(this);
     console.log(`${this.name} use Darkvision on ${victim.name}`);
     victim.takeDammage(this, damage);
     this.mana -= 20;

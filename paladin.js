@@ -26,7 +26,7 @@ class Paladin extends Character {
     let damage = 4;
     let heal = 5;
     console.log("On witch player do you want to lunch your Ligthing ?");
-    let victim = game.selectEnemy();
+    let victim = game.selectEnemy(this);
     console.log(`${this.name} use Lighting on ${victim.name}`);
     victim.takeDammage(this, damage);
     if (this.hp + heal >= this.maxHp) {
