@@ -31,11 +31,12 @@ class Character {
     }
     this.hp -= getDamage;
     console.log(`${this.name} lose ${getDamage} health points !`);
-    if (this.hp < 0) {
+    if (this.hp <= 0) {
       console.log(`${this.name} is dead`);
       this.select = "";
       this.status = "loser";
       fromPlayer.isTheKiller();
+      game.playersStillAlive();
     }
   };
 

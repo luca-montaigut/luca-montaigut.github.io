@@ -13,10 +13,14 @@ class Game {
   };
 
   endGame = () => {
+    this.playersStillAlive();
+    this.players.forEach((player) => {
+      player.status = "winner";
+    });
     console.log("############### Winner(s) ###############################");
     this.players.forEach((player) => {
       if (player.status == "winner") {
-        player.stats();
+        console.log(`Congratulation ${player}, you're still alive ... `);
       }
     });
     console.log("#########################################################");
@@ -29,6 +33,16 @@ class Game {
     let player4 = new Berzerker();
     let player5 = new Assassin();
     this.players.push(player1, player2, player3, player4, player5);
+  };
+
+  playersStillAlive = () => {
+    let playersAlive = new Array();
+    this.players.forEach((player) => {
+      if (player.status == "playing") {
+        playersAlive.push(player);
+      }
+    });
+    this.players = playersAlive;
   };
 
   watchStats = () => {
@@ -52,7 +66,9 @@ class Game {
       switch (menuChoice) {
         case "1":
           run = true;
-          this.selectEnemy(player);
+          console.log("On witch player do you want to lunch your attack ?");
+          let attackOn = this.selectEnemy(player);
+          player.dealDammage(attackOn);
           break;
 
         case "2":
@@ -84,7 +100,7 @@ class Game {
     enemies.splice(playerPosition, 1);
     let index = 1;
     enemies.forEach((enemy) => {
-      console.log(`${index} : Attack on ${enemy.stats()}`);
+      console.log(`${index} : on ${enemy.stats()}`);
       enemy.select = index;
       index += 1;
     });
@@ -93,12 +109,13 @@ class Game {
     let run = false;
 
     while (!run) {
-      enemies.forEach((enemy) => {
+      for (let i = 0; i < enemies.length; i++) {
+        const enemy = enemies[i];
         if (enemy.select == attackChoice) {
-          player.dealDammage(enemy);
           run = true;
+          return enemy;
         }
-      });
+      }
       if (!run) {
         attackChoice = prompt(
           "Unavailable choice, please enter a valide number"

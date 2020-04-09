@@ -21,12 +21,12 @@ class Berzerker extends Character {
   capacity = () => {
     if ((this.hp = 1)) {
       return "You can't use Rage with so few hp";
-    } else {
-      console.log(
-        `${this.name} go to Rage mode and won 1 attack point. But is madness cost him 1 health point too.`
-      );
-      this.hp -= 1;
-      this.attack += 1;
     }
+
+    console.log(
+      `${this.name} go to Rage mode and won 1 attack point. But is madness cost him 1 health point too.`
+    );
+    this.hp -= 1;
+    this.attack += 1;
   };
 }

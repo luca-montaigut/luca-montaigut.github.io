@@ -1,6 +1,5 @@
 class Assassin extends Character {
   constructor(
-    dagger = false,
     victim = "",
     name = "Carl",
     hp = 6,
@@ -11,17 +10,15 @@ class Assassin extends Character {
     select
   ) {
     super(name, hp, mana, attack, defense, status, select);
-    this.dagger = dagger;
     this.victim = victim;
   }
 
   initStats = () => {
-    if (this.dagger) {
+    if (this.victim != "") {
       console.log(
         `${this.name} has invincibility on this turn because of his Dagger`
       );
       this.defense += 999;
-      this.dagger = false;
     }
   };
 
@@ -40,17 +37,25 @@ class Assassin extends Character {
     if (this.mana < 20) {
       return "You can't use Dagger with so few mana";
     }
-
-    /////SELECT ADVERSAIRE and put it on this.victim
+    this.victim = game.selectEnemy();
     console.log(
       `${this.name} use Dagger and make a plan to kill someone on next turn`
     );
     this.mana -= 20;
-    this.dagger = true;
   };
 
   daggerAttack = () => {
     let damage = 7;
-    //////Attck this.victime, if this.victim != kill => takedamage(this, damage)
+    console.log(
+      `${this.name} finaly appli his killing plan on ${this.victim.name}`
+    );
+    this.dealDammage(this.victim);
+    if (game.players.includes(this.victim)) {
+      console.log(
+        `${this.name}'s plan fail and he get hurt and lose ${damage} health points`
+      );
+      this.takeDammage(this, damage);
+    }
+    this.victim = "";
   };
 }

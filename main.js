@@ -8,20 +8,38 @@ const shuffleArray = (array) => {
 
 game = new Game();
 game.initializePlayers();
-game.watchStats();
 
 console.log(game.players);
 
 let playersTurn;
-let i = 0;
+let i = 1;
 
-while (i < 2) {
+while (game.turnLeft > 0) {
+  console.log(`Turn n°${i}`);
   playersTurn = shuffleArray(game.players);
-  console.log(playersTurn);
-  i += 1;
+  console.log(`##############################################`);
   playersTurn.forEach((player) => {
-    console.log(`${player.name}'s turn to play`);
-    player.stats();
-    game.menu(player);
+    if (player.status == "playing") {
+      player.initStats();
+      console.log(`${player.name} is ready to fight`);
+    }
   });
+  playersTurn.forEach((player) => {
+    if (player.status == "playing") {
+      console.log(`##############################################`);
+      if (player instanceof Assassin && player.victim != "") {
+        player.daggerAttack();
+      } else {
+        console.log(`${player.name}'s turn to play`);
+        player.stats();
+        game.menu(player);
+      }
+    }
+  });
+  console.log(`##############################################`);
+  playersTurn.forEach((player) => {
+    player.endStats();
+  });
+  game.turnLeft -= 1;
+  i += 1;
 }

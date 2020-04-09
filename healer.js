@@ -21,14 +21,15 @@ class Healer extends Character {
   capacity = () => {
     let heal = 8;
     if (this.mana < 25) {
-      return "Vous n'avez plus assez de mana";
+      return "You can't use Heal with so few mana";
     }
-    if (this.hp + heal >= this.maxHP) {
-      console.log(`${this.name} a regagné tous ses points de vie`);
+
+    if (this.hp + Number(heal) >= this.maxHP) {
+      console.log(`${this.name} as all his health points back`);
       this.hp = maxHp;
     } else {
-      console.log(`${this.name} se soigne et gagne ${heal} points de vie`);
-      this.hp += heal;
+      console.log(`${this.name} heal himself and won ${heal} health points`);
+      this.hp += Number(heal);
     }
     this.mana -= 25;
   };
