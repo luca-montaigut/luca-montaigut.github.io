@@ -1,77 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Loto THP Next</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
-
 <body>
-
-  <div class="container text-center mt-5  shadow-lg bg-white rounded py-3">
-    <h1 class="my-5"> Grand Loto de THP NEXT</h1>
-    <div class="row">
-      <div class="col-3"></div>      
-      <div class="col-6">
-
-        <input type="text" id="fname" name="fname" class="form-control" placeholder="Prénom" /><br />
   
-        <input type="text" id="lname" name="lname" class="form-control" placeholder="Nom"/><br />
 
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email"/><br />
-        
-        <label for="number">Vos numéros :</label><br />
-
-        <div class="row">  
-          <input type="number" id="number1" name="number1" class="col-2 form-control"/>
-          <input type="number" id="number2" name="number2" class="col-2 form-control"/>
-          <input type="number" id="number3" name="number3" class="col-2 form-control"/>
-          <input type="number" id="number4" name="number4" class="col-2 form-control"/>
-          <input type="number" id="number5" name="number5" class="col-2 form-control"/>
-          <input type="number" id="number6" name="number6" class="col-2 form-control"/>   
-        </div>
-      
-        <br />
-        <br />
-        
-        <input type="submit" id="submit" value="Voir si j'ai gagné" class="btn btn-info btn-lg" />
-      </div>
-      <div class="col-3"></div>      
-    </div>
-  </div>
-
-  </div>
-
-
-
-  <footer class="footer d-flex align-items-center">
-    <div class="col-4 pb-3">
-      <div id="talk" class="border py-1 px-2" style="background-color: #f5f5f5;">
-        <p id="lazytalk"> ZzzZzz... zZz...</p>
-        <p id="lazytalk2"> ...Zzz...</p>
-        <audio controls id="music">
-          <source src="mjloto.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <img id="lazyrabbit" src="https://colorstrap.herokuapp.com/assets/lazyrabbit-0a397b5b4cb3ae4cb99fa181699985d4f4593b631485d24180635b5c691547b3.svg"/>
-    </div>
-    <div class="col-4 text-center">
-      <span>Fait avec ❤️ par <a href="https://github.com/luca-montaigut">Luca Montaigut</a></span> |
-      <span>Contact : <a href="mailto:lmontaigut@gmail.com">lmontaigut@gmail.com</a></span>
-    </div>
-    <div class="col-4 pl-lg-5"></div>
-  </footer>
-
-  <script src="index.js"></script>
+  <script src="character.js"></script>
+  <script src="fighter.js"></script>
+  <script src="paladin.js"></script>
+  <script src="healer.js"></script>
+  <script src="berzerker.js"></script>
+  <script src="assassin.js"></script>
+  <script src="game.js"></script>
+  <script src="main.js"></script>
 </body>
-
 </html>

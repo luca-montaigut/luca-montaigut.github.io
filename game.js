@@ -1,0 +1,109 @@
+class Game {
+  constructor(turnLeft = 10, players = new Array(), status = true) {
+    this.turnLeft = turnLeft;
+    this.players = players;
+    this.status = status;
+  }
+
+  skipTurn = () => {
+    this.turnLeft -= 1;
+    if ((this.turnLeft = 0)) {
+      this.endGame();
+    }
+  };
+
+  endGame = () => {
+    console.log("############### Winner(s) ###############################");
+    this.players.forEach((player) => {
+      if (player.status == "winner") {
+        player.stats();
+      }
+    });
+    console.log("#########################################################");
+  };
+
+  initializePlayers = () => {
+    let player1 = new Fighter();
+    let player2 = new Paladin();
+    let player3 = new Healer();
+    let player4 = new Berzerker();
+    let player5 = new Assassin();
+    this.players.push(player1, player2, player3, player4, player5);
+  };
+
+  watchStats = () => {
+    console.log("--------------- Characters still in game ----------------");
+    this.players.forEach((player) => {
+      if (player.status == "playing") {
+        console.log(player.stats());
+      }
+    });
+    console.log("---------------------------------------------------------");
+  };
+
+  menu = (player) => {
+    console.log(`What do you want to do ${player.name} ?`);
+    console.log("1 : Attack");
+    console.log(`2 : Use ${player.capacityName()}`);
+    console.log("3 : Watch players stats");
+    let menuChoice = prompt("Enter your choice number");
+    let run = false;
+    while (!run) {
+      switch (menuChoice) {
+        case "1":
+          run = true;
+          this.selectEnemy(player);
+          break;
+
+        case "2":
+          run = true;
+          player.capacity();
+          break;
+
+        case "3":
+          this.watchStats();
+          console.log(`What do you want to do ${player.name} ?`);
+          console.log("1 : Attack");
+          console.log(`2 : Use ${player.capacityName()}`);
+          console.log("3 : Watch players stats");
+          menuChoice = prompt("Enter your choice number");
+          break;
+
+        default:
+          menuChoice = prompt(
+            "Unavailable choice, please enter a valide number"
+          );
+          break;
+      }
+    }
+  };
+
+  selectEnemy = (player) => {
+    let enemies = this.players.slice();
+    let playerPosition = enemies.indexOf(player);
+    enemies.splice(playerPosition, 1);
+    let index = 1;
+    enemies.forEach((enemy) => {
+      console.log(`${index} : Attack on ${enemy.stats()}`);
+      enemy.select = index;
+      index += 1;
+    });
+    let attackChoice = prompt("Enter your choice number");
+
+    let run = false;
+
+    while (!run) {
+      enemies.forEach((enemy) => {
+        if (enemy.select == attackChoice) {
+          player.dealDammage(enemy);
+          run = true;
+        }
+      });
+      if (!run) {
+        attackChoice = prompt(
+          "Unavailable choice, please enter a valide number"
+        );
+      }
+    }
+  };
+}
