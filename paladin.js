@@ -28,12 +28,12 @@ class Paladin extends Character {
     console.log("On witch player do you want to lunch your Ligthing ?");
     let victim = game.selectEnemy();
     console.log(`${this.name} use Lighting on ${victim.name}`);
-
-    if (this.hp + heal >= this.maxHP) {
-      console.log(`${name} is fully heal by Lighting`);
-      this.hp = maxHp;
+    victim.takeDammage(this, damage);
+    if (this.hp + heal >= this.maxHp) {
+      console.log(`${this.name} is fully heal by Lighting`);
+      this.hp = this.maxHp;
     } else {
-      console.log(`${name} is heal of ${heal} health points by Lighting`);
+      console.log(`${this.name} is heal of ${heal} health points by Lighting`);
       this.hp += heal;
     }
     this.mana -= 40;

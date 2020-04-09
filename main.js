@@ -37,6 +37,8 @@ const gameOn = () => {
           game.menu(player);
         }
       }
+      console.log(`##############################################`);
+      console.log(`End of ${player.name}'s turn, press Enter to continue`);
       prompt(`End of ${player.name}'s turn, press Enter to continue`);
       console.clear();
     });

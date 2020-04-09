@@ -24,9 +24,9 @@ class Healer extends Character {
       return console.log("You can't use Heal with so few mana");
     }
 
-    if (this.hp + Number(heal) >= this.maxHP) {
+    if (this.hp + heal >= this.maxHp) {
       console.log(`${this.name} as all his health points back`);
-      this.hp = maxHp;
+      this.hp = this.maxHp;
     } else {
       console.log(`${this.name} heal himself and won ${heal} health points`);
       this.hp += Number(heal);
@@ -34,9 +34,3 @@ class Healer extends Character {
     this.mana -= 25;
   };
 }
-
-const getRandomIntInclusive = (min = 1, max = 49) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};

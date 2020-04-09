@@ -8,14 +8,14 @@ class Character {
     status = "playing",
     select = ""
   ) {
-    (this.name = name),
-      (this.hp = hp),
-      (this.maxHp = hp),
-      (this.mana = mana),
-      (this.maxMana = mana),
-      (this.attack = attack),
-      (this.defense = defense),
-      (this.status = status);
+    this.name = name;
+    this.hp = hp;
+    this.maxHp = hp;
+    this.mana = mana;
+    this.maxMana = mana;
+    this.attack = attack;
+    this.defense = defense;
+    this.status = status;
     this.select = select;
   }
 
