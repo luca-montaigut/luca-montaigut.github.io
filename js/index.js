@@ -71,7 +71,7 @@ const searchMovies = () => {
     return false;
   }
   let finder = document.getElementById("findmovie").value;
-  let URL = `http://www.omdbapi.com/?apikey=${token}=${finder}`;
+  let URL = `http://www.omdbapi.com/?apikey=${token}&s=${finder}`;
   fetch(URL)
     .then((response) => response.json())
     .then((response) => {
@@ -106,7 +106,7 @@ const getApi = () => {
   if (token == null) {
     return false;
   }
-  let URL = `http://www.omdbapi.com/?apikey=${token}=batman`;
+  let URL = `http://www.omdbapi.com/?apikey=${token}&s=batman`;
   fetch(URL)
     .then((response) => response.json())
     .then((response) => {
