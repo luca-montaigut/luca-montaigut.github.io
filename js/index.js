@@ -22,7 +22,7 @@ const showMore = (code, plot) => {
 const readMore = (film) => {
   console.log(film);
   let code = film.target.dataset.code;
-  const URL_MOVIE = `http://www.omdbapi.com/?apikey=${token}&i=${code}`;
+  const URL_MOVIE = `https://www.omdbapi.com/?apikey=${token}&i=${code}`;
   fetch(URL_MOVIE)
     .then((response) => response.json())
     .then((response) => {
@@ -71,7 +71,7 @@ const searchMovies = () => {
     return false;
   }
   let finder = document.getElementById("findmovie").value;
-  let URL = `http://www.omdbapi.com/?apikey=${token}&s=${finder}`;
+  let URL = `https://www.omdbapi.com/?apikey=${token}&s=${finder}`;
   fetch(URL)
     .then((response) => response.json())
     .then((response) => {
@@ -106,7 +106,7 @@ const getApi = () => {
   if (token == null) {
     return false;
   }
-  let URL = `http://www.omdbapi.com/?apikey=${token}&s=batman`;
+  let URL = `https://www.omdbapi.com/?apikey=${token}&s=batman`;
   fetch(URL)
     .then((response) => response.json())
     .then((response) => {
