@@ -1,0 +1,107 @@
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 {
+  color: #5e7ce2;
+}
+
+.btn-info {
+  background-color: #5e7ce2;
+  border-color: #5e7ce2;
+  border-radius: 2em;
+  padding-left: 2em;
+  padding-right: 5em;
+}
+
+.btn-info:hover {
+  background-color: #4a67c7;
+  border-color: #4a67c7;
+}
+
+.btn-info:focus {
+  background-color: #4a67c7;
+  border-color: #4a67c7;
+  box-shadow: none;
+}
+
+.small-img {
+  padding-left: 1em;
+  height: 25vh;
+}
+
+.form-div {
+  padding-left: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 2px solid black;
+  border-radius: 255em;
+}
+
+.form-control {
+  border: none;
+}
+
+.form-control:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.row {
+  padding: 0px;
+  height: 30vh;
+  margin: 1em;
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.border {
+  border: 2px solid #c9c9c9;
+  border-radius: 3em;
+}
+
+.row.not-visible {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.plot {
+  font-size: 2em;
+}
