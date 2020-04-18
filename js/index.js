@@ -25,6 +25,23 @@ const shuffleArray = (array) => {
   return array;
 };
 
+const howManyQuestion = () => {
+  title.innerHTML = `Trivia THP Next`;
+  insert.innerHTML = ``;
+  insert.innerHTML = `
+  <h3 class="text-center">How many question(s) do you want to answer ?</h3>
+  <div class="form-inline justify-content-center">
+    <input type="number" class="form-control pl-5" value="5">
+    <p id="launch" class="mx-5 my-5 btn btn-danger btn-lg">Go !</p>  
+  </div>
+  `;
+  document.getElementById("launch").addEventListener("click", () => {
+    chosenNumber = document.querySelector("input").value;
+    URL = `https://opentdb.com/api.php?amount=${chosenNumber}`;
+    getQuizz();
+  });
+};
+
 const getQuizz = () => {
   fetch(URL)
     .then((response) => response.json())
@@ -45,7 +62,8 @@ const displayQuestion = () => {
   animate([-2000, 0]);
   insert.innerHTML = `<h2 class="mb-3">${currentQuestion.question}</h2>`;
   if (currentQuestion.type === "boolean") {
-    insert.innerHTML += `<br>  
+    insert.innerHTML += `
+    <br>  
       <div class='row' style="height: 30vh;">
         <div class='col d-flex flex-column'>
           <p class='my-4 btn btn-outline-danger'>True</p>
@@ -53,7 +71,8 @@ const displayQuestion = () => {
         <div class='col d-flex flex-column'>
           <p class='my-4 btn btn-outline-danger'>False</p>
         </div>
-      </div>`;
+      </div>
+      `;
   }
   if (currentQuestion.type === "multiple") {
     let multiple = [
@@ -63,7 +82,8 @@ const displayQuestion = () => {
       currentQuestion.incorrect_answers[2],
     ];
     shuffleArray(multiple);
-    insert.innerHTML += `  <br>  
+    insert.innerHTML += `
+    <br>  
     <div class='row' style="height: 30vh;">
       <div class='col d-flex flex-column'>
         <p class="my-2 btn btn-outline-danger">${multiple[0]}</p>
@@ -73,7 +93,8 @@ const displayQuestion = () => {
         <p class="my-2 btn btn-outline-danger">${multiple[2]}</p>
         <p class="my-2 btn btn-outline-danger">${multiple[3]}</p>
       </div>
-    </div>`;
+    </div>
+    `;
   }
 
   document.querySelectorAll(".btn-outline-danger").forEach((userAnswers) => {
@@ -121,34 +142,29 @@ const endGame = () => {
     </tr>
     `;
   }
+  insert.innerHTML += `<p id="restart" class="mx-5 mt-5 mb-2 btn btn-danger btn-lg">Play again ?</p>`;
+  document.getElementById("restart").addEventListener("click", playAgain);
 };
 
 const gameResult = () => {
   for (let i = 0; i < answers.length; i++) {
     if (answers[i] === userAnswers[i]) {
-      userResults.push("<i class='far fa-check-circle'></i>");
+      userResults.push("<i class='far fa-check-circle fa-lg'></i>");
       userPoints += 1;
     } else {
-      userResults.push("<i class='far fa-times-circle'></i>");
+      userResults.push("<i class='far fa-times-circle fa-lg'></i>");
     }
   }
 };
 
-const howManyQuestion = () => {
-  title.innerHTML = `Trivia THP Next`;
-  insert.innerHTML = ``;
-  insert.innerHTML = `
-  <h3 class="text-center">How many question(s) do you want to answer ?</h3>
-  <div class="form-inline justify-content-center">
-    <input type="number" class="form-control pl-5" value="5">
-    <p id="launch" class="mx-5 my-5 btn btn-danger btn-lg">Go !</p>  
-  </div>
-  `;
-  document.getElementById("launch").addEventListener("click", () => {
-    chosenNumber = document.querySelector("input").value;
-    URL = `https://opentdb.com/api.php?amount=${chosenNumber}`;
-    getQuizz();
-  });
+const playAgain = () => {
+  quizz;
+  answers = new Array();
+  userAnswers = new Array();
+  userResults = new Array();
+  userPoints = 0;
+  questionNumber = 0;
+  howManyQuestion();
 };
 
 howManyQuestion();
