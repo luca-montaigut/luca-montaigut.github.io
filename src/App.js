@@ -36,11 +36,11 @@ const App = () => {
 
   return (
     <IntlProvider locale={language} messages={messages[language]}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Navbar language={language} changeLanguage={changeLanguage} />
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL + "/"}>
+            <Route exact path="/">
               <Home />
             </Route>
             <Route path="/about">
