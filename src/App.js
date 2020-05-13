@@ -40,7 +40,7 @@ const App = () => {
         <div>
           <Navbar language={language} changeLanguage={changeLanguage} />
           <Switch>
-            <Route exact path="/">
+            <Route exact path={process.env.PUBLIC_URL + "/"}>
               <Home />
             </Route>
             <Route path="/about">

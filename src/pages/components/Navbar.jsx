@@ -10,10 +10,10 @@ const Navbar = ({ language, changeLanguage }) => {
       <Link to="/about">About</Link>
       <Link to="/works">Works</Link>
       {language === "fr" && (
-        <img src={FrFlag} alt="zeubi" onClick={changeLanguage} />
+        <img src={EnFlag} alt="zeubi" onClick={changeLanguage} />
       )}
       {language === "en" && (
-        <img src={EnFlag} alt="zeubi" onClick={changeLanguage} />
+        <img src={FrFlag} alt="zeubi" onClick={changeLanguage} />
       )}
     </div>
   );
